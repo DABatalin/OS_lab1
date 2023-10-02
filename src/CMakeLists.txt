@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(lab1 VERSION 0.1.0 LANGUAGES C CXX)
 
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+# find_package(GTest REQUIRED)
+# include_directories(${GTEST_INCLUDE_DIRS})
 
-add_executable(lab1 lab1.c)
+add_executable(lab1 main.c)
 
 # enable_testing()
 
