@@ -19,7 +19,7 @@ int main() {
     pid_t pid = create_process();
     if (pid == 0) // child1
     {
-        char* parent_string[STRING_SIZE];
+        char parent_string[STRING_SIZE];
         close(pipe_fd[1]);
         close(pipe_fd_children[0]);
 
@@ -35,7 +35,7 @@ int main() {
         pid_t pid = create_process();
         if (pid == 0) // child2
         {  
-            char* child_string[STRING_SIZE];
+            char child_string[STRING_SIZE];
             close(pipe_fd[0]);
             close(pipe_fd[1]);
             close(pipe_fd_children[1]);
@@ -49,7 +49,7 @@ int main() {
         }
         else // parent
         {
-            char* string[STRING_SIZE];
+            char string[STRING_SIZE];
             close(pipe_fd[0]);
             close(pipe_fd_final[1]);
 
@@ -72,6 +72,7 @@ int create_process() {
     if (-1 == pid)
     {
         perror("Error while fork");
+        exit(-2);
     }
     return pid;
 }
